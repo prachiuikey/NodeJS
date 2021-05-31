@@ -1,3 +1,4 @@
+/*
 const path = require('path');
 
 const express = require('express');
@@ -14,5 +15,20 @@ router.post('/add-product',(req, res, next) => {
     console.log(req.body);
     res.redirect('/');
 });
+
+module.exports = router;
+*/
+
+const path = require('path');
+
+const express = require('express');
+
+const productControllers = require('../Controllers/Products');
+
+const router = express.Router();
+
+router.get('/add-product', productControllers.getAddProducts);
+
+router.post('/add-product', productControllers.postAddProducts);
 
 module.exports = router;
