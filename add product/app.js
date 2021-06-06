@@ -43,11 +43,14 @@ app.set('view engine', 'ejs');
 app.set('views', 'views');
 
 const errorController = require('./Controllers/error');
+const db = require('./util/database');
 
 const adminRoutes = require('./routes/admin');
 const shopRoutes = require('./routes/shop');
 const contactRoutes = require('./routes/contact');
 const successRoutes = require('./routes/success');
+
+db.execute('Select * from products');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(path.join(rootDir, 'public')));
